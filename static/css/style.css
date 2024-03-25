@@ -1,9 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    background-color: #19191A;
+    background-color: #1b2838;
     font-family: 'Arial', sans-serif;
     color: white;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .header-text{
     font-color: #FFFFFF;
+}
+
+.header {
+    background-color: #171d25;
+    padding: 24px 0;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.login {
+    margin-top: 100px;
+    color: grey;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-list {
+    list-style: none;
+    padding-top: 15px;
+    padding-left: 90px;
+    padding-right: 90px;
+    display: flex;
+}
+
+.header-item {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.header-item a {
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.header-item a:hover {
+    color: white;
+    border-bottom: 2px solid white;
+}
+
+.main-logo img {
+    vertical-align: bottom;
+}
+
+
+
+.main-game {
+    margin-top: 24px;
+    background-color: #1b2c3b;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.main-game:hover {
+    background-color: #a9cde2;
+}
+
+.game-tags {
+    color: grey;
+    font-size: 12px;
+}
+
+.game-sale {
+    font-size: 16px;
+    margin: 24px 24px;
+    background-color: #4c6b22;
+    color: #BEEE11;
+}
+
+.game-cost-without-sale {
+    color: grey;
+    font-size: 12px;
+    text-decoration: line-through;
+}
+
+.game-cost {
+    color: #beee11;
 }
