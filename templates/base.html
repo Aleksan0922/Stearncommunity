@@ -20,7 +20,11 @@
             </div>
             <ul class="header-list">
                 <li class="header-item">
-                    <a href="/" class="main-shop">МАГАЗИН</a>
+                    {% if path == '/index' %}
+                        <a href="/" class="main-shop is-here">МАГАЗИН</a>
+                    {% else %}
+                        <a href="/" class="main-shop">МАГАЗИН</a>
+                    {% endif %}
                 </li>
                 <li class="header-item">
                     <a href="/community" class="main-community">СООБЩЕСТВО</a>

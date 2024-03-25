@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="community">
+        <div class="container">
+            <div class="community-title">
+                <div class="community-name">Активность сообщества</div>
+                <div class="community-tags">Фанатский и официальный контент для всех игр и программ в Steam.</div>
+            </div>
+            <div class="community-games">
+                <div class="community-recent-played">
+                    {% if current_user.is_authenticated %}
+                        <div class="community-games-title">НЕДАВНО ЗАПУЩЕННЫЕ ИГРЫ</div>
+                        <div class="community-error"></div>
+                    {% else %}
+                        <div class="community-not-registed-title">Добро пожаловать в сообщество Steam</div>
+                        <div class="community-not-registed-text">
+                            Войдите в свой профиль сообщества Steam, чтобы<br> найти другие центры.
+                        </div>
+                        <div class="community-login">
+                            <button class="community-login-button">Вход</button>
+                            <p class="community-or">или</p>
+                            <button class="community-login-button">Регистрация</button>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="community-recent-seen">
+                    <div class="community-games-title">НЕДАВНО ПРОСМОТРЕННЫЕ ЦЕНТРЫ</div>
+                    <div class="community-game">
+                        <div class="community-game-logos">
+                            <img src="../static/images/pikuniku-logo.png" alt="Game logo" class="community-game-logo">
+                        </div>
+                        <div class="community-game-info">
+                            <a class="community-game-name">Pikuniku</a>
+                            <div class="community-game-publication">Новых работ: 0</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="community-popular">
+                    <div class="community-games-title">ПОПУЛЯРНЫЕ ЦЕНТРЫ</div>
+                    <div class="community-game">
+                        <div class="community-game-logos">
+                            <img src="../static/images/pikuniku-logo.png" alt="Game logo" class="community-game-logo">
+                        </div>
+                        <div class="community-game-info">
+                            <a class="community-game-name">Pikuniku</a>
+                            <div class="community-game-publication">Новых работ: 0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="community-game-publications">
+                <div class="community-game-publications-count">Больше ничего нет. Увы.</div>
+                <div class="community-game-publications-text">
+                    Но вы можете помочь: поделитесь скриншотом, сделайте видео или начните новое обсуждение!
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

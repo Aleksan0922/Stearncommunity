@@ -31,7 +31,7 @@ body {
 
 .login {
     margin-top: 100px;
-    color: grey;
+    color: #8f98a0;
     font-size: 14px;
     text-decoration: none;
     cursor: pointer;
@@ -72,6 +72,11 @@ body {
     vertical-align: bottom;
 }
 
+.is-here {
+    color: #1a9fff;
+    border-bottom: 2px solid #1a9fff;
+}
+
 
 
 .main-game {
@@ -86,27 +91,109 @@ body {
 }
 
 .main-game:hover {
+    text-decoration: none;
+    color: white;
     background-color: #a9cde2;
 }
 
 .game-tags {
-    color: grey;
+    color: #264252;
     font-size: 12px;
+    margin-top: 10px
+}
+
+.game-info {
+    margin-left: 20px;
+    margin-right: 540px;
 }
 
 .game-sale {
     font-size: 16px;
-    margin: 24px 24px;
+    margin: 20px 20px;
+    padding: 2px 5px;
     background-color: #4c6b22;
     color: #BEEE11;
 }
 
+.game-price {
+    text-align: right;
+}
+
 .game-cost-without-sale {
-    color: grey;
+    color: #8f98a0;
     font-size: 12px;
     text-decoration: line-through;
 }
 
 .game-cost {
     color: #beee11;
+}
+
+.game-logo img {
+    vertical-align: bottom;
+}
+
+
+
+.community {
+    margin-top: 20px;
+}
+
+.community-title {
+    margin-bottom: 10px;
+}
+
+.community-name {
+    font-size: 24px;
+}
+
+.community-tags {
+    color: #8f98a0;
+}
+
+.community-games {
+    background-color: #12222f;
+    display: flex;
+    font-size: 14px;
+}
+
+.community-game {
+    margin-top: 5px;
+    display: flex;
+}
+
+.community-recent-played {
+    margin: 10px 10px;
+}
+
+.community-recent-seen {
+    margin: 10px 10px;
+}
+
+.community-popular {
+    margin: 10px 10px;
+}
+
+.community-games-title {
+    margin-right: 120px;
+    color: #8f98a0;
+}
+
+.community-game-logos {
+    margin-top: 2px;
+    vertical-align: bottom;
+}
+
+.community-game-info {
+    margin-left: 10px;
+}
+
+.community-game-publication {
+    font-size: 12px;
+    color: #2f89bc;
+}
+
+
+.community-game-publications {
+    text-align: center;
 }

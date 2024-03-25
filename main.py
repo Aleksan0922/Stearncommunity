@@ -39,7 +39,12 @@ class LoginForm(FlaskForm):
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', path='/index')
+
+
+@app.route('/community')
+def community():
+    return render_template('community.html', path='/community')
 
 
 @login_manager.user_loader
