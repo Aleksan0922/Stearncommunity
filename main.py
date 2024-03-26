@@ -47,6 +47,16 @@ def community():
     return render_template('community.html', path='/community')
 
 
+@app.route('/info')
+def info():
+    return render_template('information.html', path='/info')
+
+
+@app.route('/help')
+def help():
+    return render_template('help.html', path='/help')
+
+
 @login_manager.user_loader
 def load_user(user_id):
     db_sess = db_session.create_session()

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="help">
+        <div class="container">
+            <div class="help-title">Поддержка Steam</div>
+            <div class="help-text">С чем вам нужна помощь?</div>
+            <div class="help-login">
+                <div class="help-login-text">
+                    Войдите в свой аккаунт Steam, чтобы просмотреть покупки и статус аккаунта,
+                    а также получить персональную <br> помощь.
+                </div>
+                <div class="help-login-buttons">
+                    <button class="help-login-button"><a href="/login" class="help-login-src">
+                        Войти в Steam
+                    </a></button>
+                    <button class="help-authorisation-button"><a href="/register" class="help-login-src">
+                        Помогите, я не могу войти в свой аккаунт
+                    </a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

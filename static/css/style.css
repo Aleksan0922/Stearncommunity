@@ -193,7 +193,88 @@ body {
     color: #2f89bc;
 }
 
+.community-login {
+    padding: 10px 0;
+    display: flex;
+}
+
+.community-or {
+    margin: 5px 10px;
+    vertical-align: bottom;
+}
+
+.community-login-button {
+    background: linear-gradient(180deg, #799905 0%, #536904 100%);
+    border-radius: 3px;
+    border-color: #799905;
+    padding: 0 14px;
+}
+
+.community-login-src:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.community-login-src {
+    cursor: pointer;
+    text-decoration: none;
+    color: #d2e885;
+}
 
 .community-game-publications {
     text-align: center;
+    margin-top: 180px;
+}
+
+.community-game-publications-text {
+    font-size: 24px;
+}
+
+.community-game-publications-count {
+    color: #a4a5aa;
+    font-size: 18px;
+}
+
+
+
+.help-title {
+    font-size: 24px;
+    margin: 14px 0;
+}
+
+.help-text {
+    margin: 14px 0;
+    font-size: 18px;
+    color: #5eafde;
+}
+
+.help-login {
+    background-color: #0b1726;
+}
+
+.help-login-text {
+    text-align: center;
+    color: #c6d4df;
+}
+
+.help-login-buttons {
+    text-align: center;
+}
+
+.help-login-button {
+    padding: 5px 50px;
+    background-color: #67c1f5;
+    border-color: #67c1f5;
+    border-radius: 3px;
+}
+
+.help-authorisation-button {
+    padding: 5px 30px;
+    background-color: #2d3d50;
+    border-color: #2d3d50;
+    border-radius: 3px;
+}
+
+.help-login-src {
+    color: white;
 }

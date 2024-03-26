@@ -27,7 +27,11 @@
                     {% endif %}
                 </li>
                 <li class="header-item">
-                    <a href="/community" class="main-community">СООБЩЕСТВО</a>
+                    {% if path == '/community' %}
+                        <a href="/community" class="main-community is-here">СООБЩЕСТВО</a>
+                    {% else %}
+                        <a href="/community" class="main-community">СООБЩЕСТВО</a>
+                    {% endif %}
                 </li>
                 {% if current_user.is_authenticated %}
                     <li class="header-item">
@@ -38,7 +42,11 @@
                     </li>
                 {% else %}
                     <li class="header-item">
-                        <a href="/info" class="main-info">ИНФОРМАЦИЯ</a>
+                        {% if path == '/info' %}
+                            <a href="/info" class="main-info is-here">ИНФОРМАЦИЯ</a>
+                        {% else %}
+                            <a href="/info" class="main-info">ИНФОРМАЦИЯ</a>
+                        {% endif %}
                     </li>
                 {% endif %}
                 <li class="header-item">
