@@ -35,7 +35,7 @@
                 </li>
                 {% if current_user.is_authenticated %}
                     <li class="header-item">
-                        <a href="/" class="main-user">{{ current_user.name.upper() }}</a>
+                        <a href="/account" class="main-user">{{ current_user.nickname }}</a>
                     </li>
                     <li class="header-item">
                         <a href="/chat" class="main-chat">ЧАТ</a>
@@ -50,12 +50,17 @@
                     </li>
                 {% endif %}
                 <li class="header-item">
-                    <a href="/help" class="main-help">ПОДДЕРЖКА</a>
+                    {% if path == '/help' %}
+                        <a href="/help" class="main-help is-here">ПОДДЕРЖКА</a>
+                    {% else %}
+                        <a href="/help" class="main-help">ПОДДЕРЖКА</a>
+                    {% endif %}
                 </li>
             </ul>
             <div class="header-login">
                 {% if current_user.is_authenticated %}
-                    <a class="navbar-brand" href="/logout">{{ current_user.name }}</a>
+                    <a class="main-user" href="/account">{{ current_user.nickname }}</a>
+                    <a href="/wallet" class="main-wallet"></a>
                 {% else %}
                     <p>
                     <a class="login" href="/register">Зарегистрироваться</a>

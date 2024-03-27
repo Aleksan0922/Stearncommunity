@@ -12,13 +12,12 @@ class User(SqlAlchemyBase, UserMixin, SerializerMixin):
 
     id = sqlalchemy.Column(sqlalchemy.Integer,
                            primary_key=True, autoincrement=True)
-    login = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    nickname = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    steam_level = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)
     email = sqlalchemy.Column(sqlalchemy.String, index=True, unique=True, nullable=True)
+    nickname = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    wallet = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)
+    currency = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    steam_level = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    modified_date = sqlalchemy.Column(sqlalchemy.DateTime,
-                                      default=datetime.datetime.now)
 
     def __repr__(self):
         return f'<User> id: {self.id}, nickname: {self.nickname}, steam level: {self.steam_level}'

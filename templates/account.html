@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="account">
+        <div class="container">
+            <div class="account-info">
+                <div class="account-name">{{ current_user.nickname }}</div>
+                <div class="account-level">{{ current_user.steam_level }}</div>
+                <div class="account-games">У вас 0 новых игр.</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

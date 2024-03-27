@@ -262,13 +262,15 @@ body {
 }
 
 .help-login-button {
-    padding: 5px 50px;
+    margin: 5px 10px;
+    padding: 5px 75px;
     background-color: #67c1f5;
     border-color: #67c1f5;
     border-radius: 3px;
 }
 
 .help-authorisation-button {
+    margin: 5px 10px;
     padding: 5px 30px;
     background-color: #2d3d50;
     border-color: #2d3d50;
@@ -277,4 +279,46 @@ body {
 
 .help-login-src {
     color: white;
+}
+
+.help-login-src:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.help-games-text {
+
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #5eafde;
+}
+
+.help-game {
+    margin: 10px 0;
+    padding: 8px 7px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #445468;
+}
+
+.help-game:hover {
+    background-color: #266ca7;
+}
+
+.help-game-info {
+    display: flex;
+}
+
+.help-game-name {
+    margin-top: 5px;
+}
+
+.help-game-name {
+    margin-left: 5px;
+}
+
+
+
+.account-info {
+    display: flex;
 }

@@ -5,6 +5,7 @@
         <div class="container">
             <div class="help-title">Поддержка Steam</div>
             <div class="help-text">С чем вам нужна помощь?</div>
+            {% if not current_user.is_authenticated %}
             <div class="help-login">
                 <div class="help-login-text">
                     Войдите в свой аккаунт Steam, чтобы просмотреть покупки и статус аккаунта,
@@ -14,9 +15,55 @@
                     <button class="help-login-button"><a href="/login" class="help-login-src">
                         Войти в Steam
                     </a></button>
-                    <button class="help-authorisation-button"><a href="/register" class="help-login-src">
+                    <button class="help-authorisation-button"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="help-login-src">
                         Помогите, я не могу войти в свой аккаунт
                     </a></button>
+                </div>
+            </div>
+            {% endif %}
+            <div class="help-games-text">ПОПУЛЯРНЫЕ ТОВАРЫ</div>
+            <div class="help-games">
+                <div class="help-game">
+                    <div class="help-game-info">
+                        <img src="../static/images/help/img-cs2.png" alt="logo" class="help-game-info-logo">
+                        <div class="help-game-name">Counter-Strike 2</div>
+                    </div>
+                    <div class="help-arrow">
+                        <img src="../static/images/help/arrow.png" alt="logo" class="help-arrow-img">
+                    </div>
+                </div>
+            </div>
+            <div class="help-games">
+                <div class="help-game">
+                    <div class="help-game-info">
+                        <img src="../static/images/help/img-dota2.png" alt="logo" class="help-game-info-logo">
+                        <div class="help-game-name">Dota 2</div>
+                    </div>
+                    <div class="help-arrow">
+                        <img src="../static/images/help/arrow.png" alt="logo" class="help-arrow-img">
+                    </div>
+                </div>
+            </div>
+            <div class="help-games">
+                <div class="help-game">
+                    <div class="help-game-info">
+                        <img src="../static/images/help/img-pubg.png" alt="logo" class="help-game-info-logo">
+                        <div class="help-game-name">PUBG: BATTLEGROUNDS</div>
+                    </div>
+                    <div class="help-arrow">
+                        <img src="../static/images/help/arrow.png" alt="logo" class="help-arrow-img">
+                    </div>
+                </div>
+            </div>
+            <div class="help-games">
+                <div class="help-game">
+                    <div class="help-game-info">
+                        <img src="../static/images/help/img-apex.png" alt="logo" class="help-game-info-logo">
+                        <div class="help-game-name">Apex Legends</div>
+                    </div>
+                    <div class="help-arrow">
+                        <img src="../static/images/help/arrow.png" alt="logo" class="help-arrow-img">
+                    </div>
                 </div>
             </div>
         </div>

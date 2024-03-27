@@ -3,7 +3,7 @@ import datetime
 
 from wtforms import EmailField, PasswordField, BooleanField, SubmitField, IntegerField, DateTimeField
 from wtforms.validators import DataRequired
-from wtforms.fields.simple import StringField
+from wtforms.fields.simple import StringField, TextAreaField
 
 from flask import Flask, abort
 from flask import render_template, request, redirect
@@ -27,6 +27,14 @@ db_session.global_init("db/stearn_users.db")
 def main():
     db_session.global_init("db/stearn_users.db")
     app.run(host='127.0.0.1', port=5000)
+
+
+class RegisterForm(FlaskForm):
+    email = EmailField('Почта:', validators=[DataRequired()])
+    password = PasswordField('Пароль:', validators=[DataRequired()])
+    password_again = PasswordField('Повторите пароль:', validators=[DataRequired()])
+    name = StringField('Имя пользователя:', validators=[DataRequired()])
+    submit = SubmitField('Войти:')
 
 
 class LoginForm(FlaskForm):
@@ -57,6 +65,11 @@ def help():
     return render_template('help.html', path='/help')
 
 
+@app.route('/account')
+def account():
+    return render_template('account.html', path='/account')
+
+
 @login_manager.user_loader
 def load_user(user_id):
     db_sess = db_session.create_session()
@@ -83,6 +96,33 @@ def login():
                                message="Неправильный логин или пароль",
                                form=form)
     return render_template('login.html', title='Авторизация', form=form)
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def reqister():
+    form = RegisterForm()
+    if form.validate_on_submit():
+        if form.password.data != form.password_again.data:
+            return render_template('register.html', title='Регистрация',
+                                   form=form,
+                                   message="Пароли не совпадают")
+        db_sess = db_session.create_session()
+        if db_sess.query(User).filter(User.email == form.email.data).first():
+            return render_template('register.html', title='Регистрация',
+                                   form=form,
+                                   message="Такой пользователь уже есть")
+        user = User(
+            email=form.email.data,
+            nickname=form.name.data,
+            wallet=0,
+            currency=' руб.',
+            steam_level=0
+        )
+        user.set_password(form.password.data)
+        db_sess.add(user)
+        db_sess.commit()
+        return redirect('/login')
+    return render_template('register.html', title='Регистрация', form=form)
 
 
 @app.errorhandler(404)
