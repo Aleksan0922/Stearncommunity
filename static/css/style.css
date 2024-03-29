@@ -363,12 +363,30 @@ body {
     margin: 5px 10px;
 }
 
+.account-games {
+    margin-bottom: 64px;
+}
+
 .account-level {
     margin: 0 10px;
     margin-bottom: 140px;
     padding: 0 11px;
     border: 2px solid #9b9b9b;
     border-radius: 50px;
+}
+
+.account-logout {
+    background-color: #3d4450;
+    margin: 0 10px;
+    padding: 8px 14px;
+    color: white;
+    text-decoration: none;
+}
+
+.account-logout:hover {
+    background-color: white;
+    color: #3d4450;
+    text-decoration: none;
 }
 
 
@@ -429,4 +447,102 @@ body {
 
 .wallet-addfunds-text {
     color: #c6d4df;
+}
+
+.wallet-addfunds-buttons {
+    padding-top: 8px;
+}
+
+.wallet-addfunds-button {
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #2c3c4a 0%, #586674 100%);
+    padding: 14px 10px;
+}
+
+.wallet-addfunds-button-title {
+    font-size: 20px;
+}
+
+.wallet-addfunds-button-text {
+    vertical-align: bottom;
+    font-size: 14px;
+    color: #c6d4df;
+}
+
+.wallet-addfunds-button-add {
+    padding: 2px 2px;
+    border-radius: 3px;
+    display: flex;
+    background-color: #000000
+}
+
+.wallet-addfunds-button-add-text {
+    margin: 0 12px;
+    margin-top: 12px;
+}
+
+.wallet-addfunds-button-src {
+    background: linear-gradient(180deg, #799905 0%, #536904 100%);
+    border-radius: 3px;
+    border-color: #799905;
+}
+
+.wallet-addfunds-button-src {
+    padding: 12px 16px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #d2e885;
+}
+
+.wallet-addfunds-button-src:hover {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+.chat {
+    background-color: #1f2126;
+    padding-bottom: 1200px;
+}
+
+.chat-select {
+    padding-bottom: 1200px;
+    padding-right: 10px;
+    border-right: 2px solid #22252b;
+}
+
+.chat-select-yourinfo {
+    background: linear-gradient(80deg, #334959 0%, #1c232c 100%);
+    display: flex;
+    margin: 14px 0;
+}
+
+.chat-select-yourinfo-logo {
+    margin-right: 10px;
+}
+
+.chat-select-yourinfo-text {
+    color: #6bcaf0;
+    margin-top: 8px;
+}
+
+.chat-select-friends-text {
+    font-size: 14px;
+    margin-top: 10px;
+    display: flex;
+}
+
+.chat-select-friends-gtext {
+    font-color: #666565;
+    margin-left: 3px;
+}
+
+.chat-chat-text {
+    text-align: center;
+    padding: 400px 120px;
+    margin-left: 80px
 }

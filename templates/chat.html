@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="chat">
+        <div class="container flex">
+            <div class="chat-select">
+                <div class="chat-select-yourinfo">
+                    <div class="chat-select-yourinfo-logo">
+                        <img src="../static/images/avatar-64.png" alt="_">
+                    </div>
+                    <div class="chat-select-yourinfo-text">
+                        <div class="chat-select-yourinfo-text-name">{{ current_user.nickname }}</div>
+                        <div class="chat-select-yourinfo-text-status">В сети</div>
+                    </div>
+                </div>
+                <div class="chat-select-friends">
+                    <img src="../static/images/chat/friends.png" alt="ДРУЗЬЯ" class="chat-select-friends-img">
+                    <div class="chat-select-friends-text">
+                        Не в сети <div class="chat-select-friends-gtext">(0)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-chat">
+                <div class="chat-chat-text">Чтобы начать, нажмите на друга или на групповой чат!</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

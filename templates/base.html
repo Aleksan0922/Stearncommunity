@@ -42,7 +42,11 @@
                         {% endif %}
                     </li>
                     <li class="header-item">
-                        <a href="/chat" class="main-chat">ЧАТ</a>
+                        {% if path == '/chat' %}
+                            <a href="/chat" class="main-chat is-here">ЧАТ</a>
+                        {% else %}
+                            <a href="/chat" class="main-chat">ЧАТ</a>
+                        {% endif %}
                     </li>
                 {% else %}
                     <li class="header-item">

@@ -44,6 +44,13 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Войти')
 
 
+class AddFundsForm(FlaskForm):
+    card_num = StringField('Номер карты', validators=[DataRequired()])
+    validity = StringField('Срок действия карты', validators=[DataRequired()])
+    cvc = PasswordField('CVV/CVC карты', validators=[DataRequired()])
+    submit = SubmitField('Подтвердить')
+
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -68,6 +75,11 @@ def help():
 @app.route('/account')
 def account():
     return render_template('account.html', path='/account')
+
+
+@app.route('/chat')
+def chat():
+    return render_template('chat.html', path='/chat')
 
 
 @app.route('/wallet')

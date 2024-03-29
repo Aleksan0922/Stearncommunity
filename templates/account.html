@@ -4,11 +4,14 @@
     <div class="account">
         <div class="container flex">
             <div class="account-info flex">
-                <div class="account-logo"><img src="../static/images/avatar.png" alt="_" class="account-logo-img"></div>
+                <div class="account-logo"><img src="../static/images/avatar-184.png" alt="_" class="account-logo-img"></div>
                 <div class="account-details">
                     <div>
                         <div class="account-name account-text">{{ current_user.nickname }}</div>
                         <div class="account-games account-text">У вас 0 новых игр.</div>
+                        <div>
+                            <a href="/logout" class="account-logout">Выйти из аккаунта...</a>
+                        </div>
                     </div>
                     <div class="account-text">Уровень<p class="account-level">{{ current_user.steam_level }}</p></div>
                 </div>

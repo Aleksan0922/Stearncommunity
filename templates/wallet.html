@@ -15,16 +15,61 @@
                 <div class="wallet-balance-text">Баланс кошелька</div>
                 <div class="wallet-balance-value">{{ current_user.wallet }}{{ current_user.currency }}</div>
             </div>
-            <div class="wallet-country">Страна: <div class="white">Россия</div></div>
+            <div class="wallet-country">Страна: <div class="white"> Россия</div></div>
             <div class="wallet-addfunds">
                 <div class="wallet-addfunds-title">ПОПОЛНИТЬ БАЛАНС</div>
-                <div class="wallet-addfunds-text-title">ПОПОЛНИТЬ БАЛАНС КОШЕЛЬКА ALEKSAN_09</div>
+                <div class="wallet-addfunds-text-title">ПОПОЛНИТЬ БАЛАНС КОШЕЛЬКА {{ current_user.nickname.upper() }}</div>
                 <div class="wallet-addfunds-text">
                     Средства в вашем кошельке Steam можно тратить на покупку любых игр в Steam или внутри<br>
                     игр, которые поддерживают оплату товаров через Steam.
                 </div>
                 <div class="wallet-addfunds-buttons">
-
+                    <div class="wallet-addfunds-button">
+                        <div class="wallet-addfunds-button-info">
+                            <div class="wallet-addfunds-button-title">Добавить 150 pуб.</div>
+                            <div class="wallet-addfunds-button-text">Минимальная сумма</div>
+                        </div>
+                        <div class="wallet-addfunds-button-add">
+                            <div class="wallet-addfunds-button-add-text">150 pуб.</div>
+                            <a href="/addfunds/150" class="wallet-addfunds-button-src">Пополнить баланс</a>
+                        </div>
+                    </div>
+                    <div class="wallet-addfunds-button">
+                        <div class="wallet-addfunds-button-info">
+                            <div class="wallet-addfunds-button-title">Добавить 300 pуб.</div>
+                        </div>
+                        <div class="wallet-addfunds-button-add">
+                            <div class="wallet-addfunds-button-add-text">300 pуб.</div>
+                            <a href="/addfunds/300" class="wallet-addfunds-button-src">Пополнить баланс</a>
+                        </div>
+                    </div>
+                    <div class="wallet-addfunds-button">
+                        <div class="wallet-addfunds-button-info">
+                            <div class="wallet-addfunds-button-title">Добавить 750 pуб.</div>
+                        </div>
+                        <div class="wallet-addfunds-button-add">
+                            <div class="wallet-addfunds-button-add-text">750 pуб.</div>
+                            <a href="/addfunds/750" class="wallet-addfunds-button-src">Пополнить баланс</a>
+                        </div>
+                    </div>
+                    <div class="wallet-addfunds-button">
+                        <div class="wallet-addfunds-button-info">
+                            <div class="wallet-addfunds-button-title">Добавить 1500 pуб.</div>
+                        </div>
+                        <div class="wallet-addfunds-button-add">
+                            <div class="wallet-addfunds-button-add-text">1500 pуб.</div>
+                            <a href="/addfunds/1500" class="wallet-addfunds-button-src">Пополнить баланс</a>
+                        </div>
+                    </div>
+                    <div class="wallet-addfunds-button">
+                        <div class="wallet-addfunds-button-info">
+                            <div class="wallet-addfunds-button-title">Добавить 3000 pуб.</div>
+                        </div>
+                        <div class="wallet-addfunds-button-add">
+                            <div class="wallet-addfunds-button-add-text">3000 pуб.</div>
+                            <a href="/addfunds/3000" class="wallet-addfunds-button-src">Пополнить баланс</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
