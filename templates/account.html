@@ -2,11 +2,16 @@
 
 {% block content %}
     <div class="account">
-        <div class="container">
-            <div class="account-info">
-                <div class="account-name">{{ current_user.nickname }}</div>
-                <div class="account-level">{{ current_user.steam_level }}</div>
-                <div class="account-games">У вас 0 новых игр.</div>
+        <div class="container flex">
+            <div class="account-info flex">
+                <div class="account-logo"><img src="../static/images/avatar.png" alt="_" class="account-logo-img"></div>
+                <div class="account-details">
+                    <div>
+                        <div class="account-name account-text">{{ current_user.nickname }}</div>
+                        <div class="account-games account-text">У вас 0 новых игр.</div>
+                    </div>
+                    <div class="account-text">Уровень<p class="account-level">{{ current_user.steam_level }}</p></div>
+                </div>
             </div>
         </div>
     </div>

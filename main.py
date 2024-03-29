@@ -70,6 +70,11 @@ def account():
     return render_template('account.html', path='/account')
 
 
+@app.route('/wallet')
+def wallet():
+    return render_template('wallet.html', path='/wallet')
+
+
 @login_manager.user_loader
 def load_user(user_id):
     db_sess = db_session.create_session()

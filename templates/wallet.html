@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="wallet">
+        <div class="container">
+            <div class="wallet-title">Аккаунт пользователя {{ current_user.nickname}}</div>
+            <div class="wallet-user-id">Steam ID: 7353322{{ current_user.id }}</div>
+            <div class="wallet-operations">
+                <div class="wallet-logo">
+                    <img src="../static/images/wallet/shop.png" alt="Steam" class="main-logo">
+                </div>
+                <div class="wallet-operations-title">Операции в магазине и история покупок</div>
+            </div>
+            <div class="wallet-balance">
+                <div class="wallet-balance-text">Баланс кошелька</div>
+                <div class="wallet-balance-value">{{ current_user.wallet }}{{ current_user.currency }}</div>
+            </div>
+            <div class="wallet-country">Страна: <div class="white">Россия</div></div>
+            <div class="wallet-addfunds">
+                <div class="wallet-addfunds-title">ПОПОЛНИТЬ БАЛАНС</div>
+                <div class="wallet-addfunds-text-title">ПОПОЛНИТЬ БАЛАНС КОШЕЛЬКА ALEKSAN_09</div>
+                <div class="wallet-addfunds-text">
+                    Средства в вашем кошельке Steam можно тратить на покупку любых игр в Steam или внутри<br>
+                    игр, которые поддерживают оплату товаров через Steam.
+                </div>
+                <div class="wallet-addfunds-buttons">
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

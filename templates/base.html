@@ -35,7 +35,11 @@
                 </li>
                 {% if current_user.is_authenticated %}
                     <li class="header-item">
-                        <a href="/account" class="main-user">{{ current_user.nickname }}</a>
+                        {% if path == '/account' %}
+                            <a href="/account" class="main-user is-here">{{ current_user.nickname.upper() }}</a>
+                        {% else %}
+                            <a href="/account" class="main-user">{{ current_user.nickname.upper() }}</a>
+                        {% endif %}
                     </li>
                     <li class="header-item">
                         <a href="/chat" class="main-chat">ЧАТ</a>
@@ -60,7 +64,7 @@
             <div class="header-login">
                 {% if current_user.is_authenticated %}
                     <a class="main-user" href="/account">{{ current_user.nickname }}</a>
-                    <a href="/wallet" class="main-wallet"></a>
+                    <a href="/wallet" class="main-wallet">{{ current_user.wallet }}{{ current_user.currency }}</a>
                 {% else %}
                     <p>
                     <a class="login" href="/register">Зарегистрироваться</a>
