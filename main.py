@@ -1,17 +1,17 @@
 from flask import make_response, jsonify
-import datetime
 
-from wtforms import EmailField, PasswordField, BooleanField, SubmitField, IntegerField, DateTimeField
+from wtforms import EmailField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired
-from wtforms.fields.simple import StringField, TextAreaField
+from wtforms.fields.simple import StringField
 
-from flask import Flask, abort
-from flask import render_template, request, redirect
+from flask import Flask
+from flask import render_template, redirect
 from flask_wtf import FlaskForm
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
-from flask_restful import reqparse, abort, Api, Resource
+from flask_restful import Api
 
 from data import db_session
+from data.games import Games
 from data.users import User
 
 app = Flask(__name__)
@@ -46,15 +46,17 @@ class LoginForm(FlaskForm):
 
 class AddFundsForm(FlaskForm):
     card_num = StringField('Номер карты', validators=[DataRequired()])
-    validity = StringField('Срок действия карты', validators=[DataRequired()])
-    cvc = PasswordField('CVV/CVC карты', validators=[DataRequired()])
+    validity = StringField('Срок действия', validators=[DataRequired()])
+    cvc = PasswordField('CVV/CVC', validators=[DataRequired()])
     submit = SubmitField('Подтвердить')
 
 
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', path='/index')
+    db_sess = db_session.create_session()
+    games = db_sess.query(Games)
+    return render_template('index.html', path='/index', games=games)
 
 
 @app.route('/community')
@@ -85,6 +87,25 @@ def chat():
 @app.route('/wallet')
 def wallet():
     return render_template('wallet.html', path='/wallet')
+
+
+@app.route('/addfunds/<int:money>', methods=['GET', 'POST'])
+def addfunds(money):
+    form = AddFundsForm()
+    if form.validate_on_submit():
+        db_sess = db_session.create_session()
+        user = db_sess.query(User).filter(User.id == current_user.id).first()
+        user.wallet += money
+        db_sess.commit()
+        return redirect('/')
+    return render_template('addfunds.html', path='/addfunds', form=form)
+
+
+@app.route('/games/<int:id>', methods=['GET', 'POST'])
+def games(id):
+    db_sess = db_session.create_session()
+    game = db_sess.query(Games).filter(Games.id == id).first()
+    return render_template('games.html', path='/addfunds', game=game)
 
 
 @login_manager.user_loader

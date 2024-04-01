@@ -3,18 +3,22 @@
 {% block content %}
     <div class="main-games">
         <div class="container">
-            <a href="/login" class="main-game">
-                <img src="../static/images/store/img-midnight.png" alt="logo" class="game-logo">
-                <div class="game-info">
-                    <div class="game-name">Midnight Ghost Hunt</div>
-                    <div class="game-tags">Для нескольких игроков, Бой, Командная</div>
+            {% for game in games %}
+            <a href="/games/{{ game.id }}" class="main-game">
+                <img src="../static/images/store/{{ game.img }}" alt="logo" class="main-game-logo" width="185">
+                <div class="main-game-info">
+                    <div class="main-game-name">{{ game.name }}</div>
+                    <div class="main-game-tags">Для нескольких игроков, Бой, Командная</div>
                 </div>
-                <div class="game-sale"><b>-66%</b></div>
-                <div class="game-price">
-                    <div class="game-cost-without-sale">435 руб.</div>
-                    <div class="game-cost">147 руб.</div>
-                </div>
+                {% if game.sale != 0 %}
+                    <div class="main-game-sale"><b>-{{ game.sale }}%</b></div>
+                    <div class="main-game-price">
+                        <div class="main-game-cost-without-sale">{{ game.price }} руб.</div>
+                        <div class="main-game-cost-with-sale">{{ game.sale_price }} руб.</div>
+                    </div>
+                {% endif %}
             </a>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

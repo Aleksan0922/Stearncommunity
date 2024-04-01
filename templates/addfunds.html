@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Введите данные карты</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.card_num.label }}<br>
+            {{ form.card_num(class="form-control", type="card_num") }}<br>
+            {% for error in form.card_num.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.validity.label }}<br>
+            {{ form.validity(class="form-control", type="validity") }}<br>
+            {% for error in form.validity.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.cvc.label }}<br>
+            {{ form.cvc(class="form-control", type="cvc") }}<br>
+            {% for error in form.cvc.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+        <div>{{ message }}</div>
+    </form>
+{% endblock %}

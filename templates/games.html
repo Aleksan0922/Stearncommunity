@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="game">
+        <div class="container">
+            <div class="games-info">
+                <div class="game-info-logo">
+                    <img src="../static/images/store/{{ game.img }}" alt="Game img" width="500">
+                </div>
+                <div class="game-info">
+                    <div class="game-info-desc">{{ game.description }}</div>
+                    <div class="game-release-date">
+                        <div class="release-date-text">ДАТА ВЫХОДА:</div>
+                        <div class="game-release-date-value">{{ game.release_date }}</div>
+                    </div>
+                    <div class="game-author">
+                        <div class="game-author-text">РАЗРАБОТЧИК:</div>
+                        <div class="game-author-value">{{ game.author }}</div>
+                    </div>
+                    <div class="game-tags-text">Популярные метки для этого продукта:</div>
+                    <div class="game-tags">{{ game.tags }}</div>
+                </div>
+            </div>
+            <div class="game-price">
+                <div class="game-price-text">Купить {{ game.name }}</div>
+                <div class="game-price-box">
+                    <div class="game-price-box-sale"><b>-{{ game.sale }}%</b></div>
+                    <div class="game-price-box-price">
+                        <div class="game-price-box-price-without">{{ game.price }} руб.</div>
+                        <div class="game-price-box-price-with">{{ game.sale_price }} руб.</div>
+                    </div>
+                    <div class="game-buy">
+                        <a href="/buy/{{ game.id }}" class="game-buy-a">Купить</a>
+                    </div>
+                </div>
+            </div>
+            <div class="game-text">
+                {{ game.full_desc }}
+            </div>
+            <div class="game-review">
+                <div class="game-review-title">ОБЗОРЫ ПОКУПАТЕЛЕЙ</div>
+                <div class="game-review-info">
+                    <div class="game-review-info-title">Все обзоры:</div>
+                    <div class="game-review-info-text"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

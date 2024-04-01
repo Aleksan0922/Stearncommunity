@@ -18,5 +18,6 @@ class Games(SqlAlchemyBase,  SerializerMixin):
     full_desc = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     price = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)
     sale = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)
+    sale_price = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     img = sqlalchemy.Column(sqlalchemy.String, unique=True, nullable=True)
     release_date = sqlalchemy.Column(sqlalchemy.String, nullable=True)
