@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="error">
+        <div class="container">
+            <div class="error-title">Ошибка</div>
+            {% if path == '/games' %}
+                <div class="error-text">На вашем балансе недостаточно средств, пожалуйста пополните баланс</div>
+                <a href="/wallet" class="error-src">Ваш кошелек</a>
+            {% else %}
+                <div class="error-text">Произошла внутренняя ошибка сервера, пожалуйста повторите попытку</div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

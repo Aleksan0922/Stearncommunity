@@ -10,7 +10,7 @@ from flask_wtf import FlaskForm
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from flask_restful import Api
 
-from data import db_session
+from data import db_session, games_api
 from data.games import Games
 from data.users import User
 
@@ -26,6 +26,7 @@ db_session.global_init("db/stearn_users.db")
 
 def main():
     db_session.global_init("db/stearn_users.db")
+    app.register_blueprint(games_api.blueprint)
     app.run(host='127.0.0.1', port=5000)
 
 
@@ -105,7 +106,18 @@ def addfunds(money):
 def games(id):
     db_sess = db_session.create_session()
     game = db_sess.query(Games).filter(Games.id == id).first()
-    return render_template('games.html', path='/addfunds', game=game)
+    return render_template('games.html', path='/games', game=game)
+
+
+@app.route('/buy/<int:id>', methods=['GET', 'POST'])
+def buy(id):
+    db_sess = db_session.create_session()
+    game = db_sess.query(Games).filter(Games.id == id).first()
+    user = db_sess.query(User).filter(User.id == current_user.id).first()
+    if user.wallet < game.sale_price:
+        return render_template('error.html', path='/games')
+    user.wallet -= game.sale_price
+    return render_template('error.html', path='/buy')
 
 
 @login_manager.user_loader

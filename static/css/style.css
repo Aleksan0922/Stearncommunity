@@ -674,5 +674,43 @@ body {
 }
 
 .game-text {
-    margin: 10px 70px;
+    margin: 20px 70px;
+}
+
+.game-review {
+    margin-top: 20px;
+}
+
+.game-review-info {
+    margin-top: 5px;
+    background-color: #16202d;
+    padding: 10px 10px;
+}
+
+.game-review-info-title {
+    color: #4dc1f5;
+    font-color: 22px;
+}
+
+.game-review-info-text {
+    justify-content: center;
+}
+
+
+
+.error-title {
+    font-size: 40px;
+}
+
+.error-text {
+    font-size: 28px;
+}
+
+.error-src {
+    font-size: 28px;
+    color: #b8b6b4;
+}
+
+.error-src:hover {
+    color: #b8b6b4;
 }
