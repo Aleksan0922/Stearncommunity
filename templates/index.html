@@ -16,6 +16,8 @@
                         <div class="main-game-cost-without-sale">{{ game.price }} руб.</div>
                         <div class="main-game-cost-with-sale">{{ game.sale_price }} руб.</div>
                     </div>
+                {% else %}
+                    <div class="main-game-cost-no-sale">{{ game.price }} руб.</div>
                 {% endif %}
             </a>
             {% endfor %}

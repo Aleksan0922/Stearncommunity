@@ -161,6 +161,12 @@ body {
     color: #beee11;
 }
 
+.main-game-cost-no-sale {
+    color: white;
+    font-size: 20px;
+    margin-left: 30px;
+}
+
 .main-game-logo img {
     vertical-align: bottom;
 }
@@ -652,6 +658,12 @@ body {
 .game-price-box-price-with {
     font-size: 14px;
     color: #beee11;
+}
+
+.game-price-box-no-sale {
+    color: white;
+    margin: 3px 6px;
+    font-size: 20px;
 }
 
 .game-buy {

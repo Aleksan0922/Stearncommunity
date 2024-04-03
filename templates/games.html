@@ -24,11 +24,15 @@
             <div class="game-price">
                 <div class="game-price-text">Купить {{ game.name }}</div>
                 <div class="game-price-box">
-                    <div class="game-price-box-sale"><b>-{{ game.sale }}%</b></div>
-                    <div class="game-price-box-price">
-                        <div class="game-price-box-price-without">{{ game.price }} руб.</div>
-                        <div class="game-price-box-price-with">{{ game.sale_price }} руб.</div>
-                    </div>
+                    {% if game.sale != 0 %}
+                        <div class="game-price-box-sale"><b>-{{ game.sale }}%</b></div>
+                        <div class="game-price-box-price">
+                            <div class="game-price-box-price-without">{{ game.price }} руб.</div>
+                            <div class="game-price-box-price-with">{{ game.sale_price }} руб.</div>
+                        </div>
+                    {% else %}
+                        <div class="game-price-box-no-sale">{{ game.price }} руб.</div>
+                    {% endif %}
                     <div class="game-buy">
                         <a href="/buy/{{ game.id }}" class="game-buy-a">Купить</a>
                     </div>
