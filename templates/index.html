@@ -5,20 +5,24 @@
         <div class="container">
             {% for game in games %}
             <a href="/games/{{ game.id }}" class="main-game">
-                <img src="../static/images/store/{{ game.img }}" alt="logo" class="main-game-logo" width="185">
-                <div class="main-game-info">
-                    <div class="main-game-name">{{ game.name }}</div>
-                    <div class="main-game-tags">Для нескольких игроков, Бой, Командная</div>
-                </div>
-                {% if game.sale != 0 %}
-                    <div class="main-game-sale"><b>-{{ game.sale }}%</b></div>
-                    <div class="main-game-price">
-                        <div class="main-game-cost-without-sale">{{ game.price }} руб.</div>
-                        <div class="main-game-cost-with-sale">{{ game.sale_price }} руб.</div>
+                <div class="main-game-div">
+                    <img src="../static/images/store/{{ game.img }}" alt="logo" class="main-game-logo" width="185">
+                    <div class="main-game-info">
+                        <div class="main-game-name">{{ game.name }}</div>
+                        <div class="main-game-tags">{{ game.tags }}</div>
                     </div>
-                {% else %}
-                    <div class="main-game-cost-no-sale">{{ game.price }} руб.</div>
-                {% endif %}
+                </div>
+                <div class="main-game-div">
+                    {% if game.sale != 0 %}
+                        <div class="main-game-sale"><b>-{{ game.sale }}%</b></div>
+                        <div class="main-game-price">
+                            <div class="main-game-cost-without-sale">{{ game.price }} руб.</div>
+                            <div class="main-game-cost-with-sale">{{ game.sale_price }} руб.</div>
+                        </div>
+                    {% else %}
+                        <div class="main-game-cost-no-sale">{{ game.price }} руб.</div>
+                    {% endif %}
+                </div>
             </a>
             {% endfor %}
         </div>

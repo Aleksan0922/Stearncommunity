@@ -87,6 +87,12 @@ body {
 
 
 
+.main-games {
+    overflow-y: scroll;
+    height: 840px;
+    scrollbar-color: #102856 #171d25;
+}
+
 .main-game {
     margin-top: 24px;
     background-color: #1b2c3b;
@@ -95,6 +101,7 @@ body {
     text-decoration: none;
     cursor: pointer;
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -128,15 +135,19 @@ body {
 
 
 
+.main-game-div {
+    display: flex;
+}
+
 .main-game-tags {
     color: #264252;
     font-size: 12px;
-    margin-top: 10px
+    margin-top: 20px
 }
 
 .main-game-info {
+    margin-top: 10px;
     margin-left: 20px;
-    margin-right: 540px;
 }
 
 .main-game-sale {
@@ -148,6 +159,8 @@ body {
 }
 
 .main-game-price {
+    margin-top: 10px;
+    margin-right: 5px;
     text-align: right;
 }
 
@@ -163,8 +176,8 @@ body {
 
 .main-game-cost-no-sale {
     color: white;
-    font-size: 20px;
-    margin-left: 30px;
+    font-size: 18px;
+    margin-right: 30px;
 }
 
 .main-game-logo img {
