@@ -117,6 +117,7 @@ def buy(id):
     if user.wallet < game.sale_price:
         return render_template('error.html', path='/games')
     user.wallet -= game.sale_price
+    db_sess.commit()
     return render_template('error.html', path='/buy')
 
 
