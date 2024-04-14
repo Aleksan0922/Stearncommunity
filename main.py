@@ -59,24 +59,6 @@ class AddFundsForm(FlaskForm):
     cvc = PasswordField('CVV/CVC', validators=[DataRequired()])
     submit = SubmitField('Подтвердить')
 
-
-class User(UserMixin, db.Model):
-    __tablename__ = 'users'
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    email = Column(String, unique=True, nullable=False)
-    nickname = Column(String, nullable=False)
-    password = Column(String, nullable=False)
-    wallet = Column(Integer, default=0)
-    currency = Column(String, default=' руб.')
-    steam_level = Column(Integer, default=0)
-    avatar = Column(String, default='default_avatar.jpg')
-
-    def set_password(self, password):
-        self.password = generate_password_hash(password)
-
-    def check_password(self, password):
-        return check_password_hash(self.password, password)
-
 class AvatarForm(FlaskForm):
     avatar = FileField('Загрузить аватар', validators=[FileAllowed(['jpg', 'png'], 'Только изображения!')])
 
@@ -119,11 +101,6 @@ def info():
 @app.route('/help')
 def help():
     return render_template('help.html', path='/help')
-
-
-@app.route('/account')
-def account():
-    return render_template('account.html', path='/account')
 
 
 @app.route('/chat')
