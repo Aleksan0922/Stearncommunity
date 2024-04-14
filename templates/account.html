@@ -19,3 +19,12 @@
         </div>
     </div>
 {% endblock %}
+
+<form method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <h3>Изменить аватар</h3>
+    {{ form.avatar }}
+    <button type="submit">Сохранить</button>
+</form>
+
+<img src="{{ url_for('static', filename='avatars/' ~ current_user.avatar) }}" alt="User Avatar">

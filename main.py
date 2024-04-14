@@ -10,6 +10,14 @@ from flask_wtf import FlaskForm
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from flask_restful import Api
 
+from werkzeug.utils import secure_filename
+import os
+
+from sqlalchemy import Column, Integer, String
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
+from flask_wtf.file import FileField, FileAllowed
+
 from data import db_session, games_api
 from data.games import Games
 from data.users import User
@@ -52,12 +60,50 @@ class AddFundsForm(FlaskForm):
     submit = SubmitField('Подтвердить')
 
 
+class User(UserMixin, db.Model):
+    __tablename__ = 'users'
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    email = Column(String, unique=True, nullable=False)
+    nickname = Column(String, nullable=False)
+    password = Column(String, nullable=False)
+    wallet = Column(Integer, default=0)
+    currency = Column(String, default=' руб.')
+    steam_level = Column(Integer, default=0)
+    avatar = Column(String, default='default_avatar.jpg')
+
+    def set_password(self, password):
+        self.password = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
+
+class AvatarForm(FlaskForm):
+    avatar = FileField('Загрузить аватар', validators=[FileAllowed(['jpg', 'png'], 'Только изображения!')])
+
+
 @app.route('/')
 @app.route('/index')
 def index():
     db_sess = db_session.create_session()
     games = db_sess.query(Games)
     return render_template('index.html', path='/index', games=games)
+
+@app.route('/account', methods=['GET', 'POST'])
+@login_required
+def account():
+    form = AvatarForm()
+    if form.validate_on_submit():
+        db_sess = db_session.create_session()
+        user = db_sess.query(User).filter(User.id == current_user.id).first()
+        file = form.avatar.data
+        if file:
+            filename = secure_filename(file.filename)
+            file.save(os.path.join('static/avatars', filename))
+            user.avatar = filename
+            db_sess.commit()
+            return redirect('/account')
+
+    return render_template('account.html', form=form, path='/account')
 
 
 @app.route('/community')
