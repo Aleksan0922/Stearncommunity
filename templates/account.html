@@ -4,7 +4,14 @@
     <div class="account">
         <div class="container flex">
             <div class="account-info flex">
-                <div class="account-logo"><img src="../static/images/avatar-184.png" alt="_" class="account-logo-img"></div>
+                <div class="account-logo">
+                    <img src="{{ url_for('default_avatar') }}" alt="Avatar" class="account-logo-img">
+                    <form action="{{ url_for('account') }}" method="post" enctype="multipart/form-data">
+                        {{ form.hidden_tag() }}
+                        {{ form.avatar(class="avatar-upload") }}
+                        <input type="submit" value="Upload" class="avatar-upload-btn">
+                    </form>
+                </div>
                 <div class="account-details">
                     <div>
                         <div class="account-name account-text">{{ current_user.nickname }}</div>
@@ -18,13 +25,4 @@
             </div>
         </div>
     </div>
-
-    <form method="post" enctype="multipart/form-data">
-        {{ form.hidden_tag() }}
-        <h3>Изменить аватар</h3>
-        {{ form.avatar }}
-        <button type="submit">Сохранить</button>
-    </form>
-
-    <img src="{{ url_for('static', filename='avatars/' ~ current_user.avatar) }}" alt="User Avatar">
 {% endblock %}
