@@ -5,7 +5,7 @@
         <div class="container flex">
             <div class="account-info flex">
                 <div class="account-logo">
-                    <img src="{{ url_for('default_avatar') }}" alt="Avatar" class="account-logo-img">
+                    <img src="{{ current_user.avatars }}" alt="Avatar" class="account-logo-img">
                     <form action="{{ url_for('account') }}" method="post" enctype="multipart/form-data">
                         {{ form.hidden_tag() }}
                         {{ form.avatar(class="avatar-upload") }}

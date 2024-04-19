@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, flash, send_from_directory
+from flask import Flask, render_template, redirect, url_for, flash, send_from_directory, request
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, FileField
@@ -99,9 +99,11 @@ def account():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             current_user.avatar = filename
 
+            current_user.avatars = filename
             db_sess = db_session.create_session()
             db_sess.merge(current_user)
             db_sess.commit()
+
             flash('Avatar uploaded successfully!', 'success')
             return redirect(url_for('account'))
         flash('No file selected', 'error')
