@@ -408,6 +408,26 @@ body {
     text-decoration: none;
 }
 
+.account-logo-img {
+    max-width: 184px;
+    max-height: 184px;
+}
+
+.avatar-upload-btn {
+    background-color: #3d4450;
+    margin: 0 10px;
+    padding: 8px 14px;
+    color: white;
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+.avatar-upload-btn:hover {
+    background-color: white;
+    color: #3d4450;
+    text-decoration: none;
+}
+
 
 
 .wallet-title {
@@ -532,6 +552,11 @@ body {
     padding-bottom: 1200px;
     padding-right: 10px;
     border-right: 2px solid #22252b;
+}
+
+.chat-select-yourinfo-logo-img {
+    max-width: 64px;
+    max-height: 64px;
 }
 
 .chat-select-yourinfo {
