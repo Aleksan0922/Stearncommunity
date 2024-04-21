@@ -63,7 +63,7 @@ def load_user(user_id):
 def index():
     db_sess = db_session.create_session()
     games = db_sess.query(Games)
-    return render_template('index.html')
+    return render_template('index.html', path='/index', games=games)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -135,7 +135,7 @@ def account():
             flash('Avatar uploaded successfully!', 'success')
             return redirect(url_for('account'))
         flash('No file selected', 'error')
-    return render_template('account.html', title='Account', form=form, user=current_user)
+    return render_template('account.html', title='Account', form=form, user=current_user, path='/account')
 
 
 @app.route('/community')
