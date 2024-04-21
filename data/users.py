@@ -1,4 +1,3 @@
-import datetime
 import sqlalchemy
 from flask_login import UserMixin
 from sqlalchemy_serializer import SerializerMixin
@@ -18,6 +17,7 @@ class User(SqlAlchemyBase, UserMixin, SerializerMixin):
     currency = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     steam_level = sqlalchemy.Column(sqlalchemy.Integer, nullable=True)
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+    avatars = sqlalchemy.Column(sqlalchemy.String, default='avatar-184.png')
 
     def __repr__(self):
         return f'<User> id: {self.id}, nickname: {self.nickname}, steam level: {self.steam_level}'
