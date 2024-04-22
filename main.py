@@ -3,10 +3,9 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, FileField
 from wtforms.fields.simple import EmailField
-from wtforms.validators import DataRequired, Email, EqualTo
+from wtforms.validators import DataRequired
 from werkzeug.utils import secure_filename
 import os
-from datetime import datetime
 from data import db_session
 from data.games import Games
 from data.users import User
@@ -18,13 +17,6 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 login_manager = LoginManager()
 login_manager.init_app(app)
 db_session.global_init("db/stearn_users.db")
-
-
-class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    remember_me = BooleanField('Remember Me')
-    submit = SubmitField('Sign In')
 
 
 class RegisterForm(FlaskForm):
@@ -200,7 +192,7 @@ def default_avatar():
 
 
 @app.errorhandler(404)
-def not_found(error):
+def not_found(_):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
 
