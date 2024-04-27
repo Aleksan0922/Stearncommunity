@@ -6,7 +6,7 @@ from wtforms.fields.simple import EmailField
 from wtforms.validators import DataRequired
 from werkzeug.utils import secure_filename
 import os
-from data import db_session
+from data import db_session, games_api
 from data.games import Games
 from data.users import User
 
@@ -202,4 +202,5 @@ def bad_request(_):
 
 
 if __name__ == '__main__':
+    app.register_blueprint(games_api.blueprint)
     app.run(host='127.0.0.1', port=5000)
