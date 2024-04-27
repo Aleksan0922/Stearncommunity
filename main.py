@@ -203,4 +203,4 @@ def bad_request(_):
 
 if __name__ == '__main__':
     app.register_blueprint(games_api.blueprint)
-    app.run(host='127.0.0.1', port=5000)
+    app.run(host='0.0.0.0', port=5000)
